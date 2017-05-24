@@ -1,13 +1,13 @@
 //Irc bot 
-//Version 0.0.2
+//Version 0.0.3
 //This code sucks 
 
 // Configuration
 var config = {
 	version : "0.0.3"
-	channels: ["#RealRoleplayRPG"],
+	channels: ["#bot"],
 	server: "irc.freenode.net",
-	botName: "RRR-Bot",
+	botName: "FunkyBot2000",
 	prefix: "!"
 };
 var irc = require("irc");
@@ -15,7 +15,7 @@ var bot = new irc.Client(config.server, config.botName, {
 	channels: config.channels
 });
 bot.addListener("join", function(channel, who) {
-	bot.say(channel, who + "Welcome to Real Roleplay RPG !");
+	bot.say(channel, who + "Welcome, and Hello !");
 });
 
 //Private message
@@ -34,7 +34,7 @@ bot.addListener("message", function(from, to, text, message) {
 		if(commands[passedMessage[0]]){
 			commands[passedMessage[0]].action(bot, e);
 		}
-		//bot.say(from, "Bot version is " + config.version);
+		
 	}
 });
 
